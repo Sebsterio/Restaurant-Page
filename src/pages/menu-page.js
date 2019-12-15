@@ -1,16 +1,18 @@
 import { menu } from "../database";
 
 export default function buildMenuPage() {
-	let content = document.createElement("div");
+	const content = document.createElement("div");
 	content.classList.add("page-wrapper");
-	let menuTable = document.createElement("table");
+	const menuTable = document.createElement("table");
 
 	// populate table with data from `menu`
 	for (let i = 0; i < menu.length; i++) {
 		const row = document.createElement("tr");
-		for (const prop in menu[i]) {
+		const menuItem = Object.values(menu[i]);
+
+		for (let j = 0; j < menuItem.length; j++) {
 			const cell = document.createElement("td");
-			cell.innerHTML = menu[i][prop];
+			cell.innerHTML = menuItem[j];
 			row.appendChild(cell);
 		}
 		menuTable.appendChild(row);
