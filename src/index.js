@@ -17,6 +17,7 @@ function renderPage(target) {
 		case "contact":
 			content = buildContactPage();
 			break;
+		default:
 	}
 	mainContent.innerHTML = "";
 	mainContent.appendChild(content);
@@ -26,3 +27,5 @@ navLinks.forEach(link => {
 	const targetPage = link.dataset.target;
 	link.addEventListener("click", () => renderPage(targetPage));
 });
+
+buildMainPage();
